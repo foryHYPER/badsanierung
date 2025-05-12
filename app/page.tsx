@@ -1,16 +1,11 @@
-import Image from "next/image";
 import HeroSection from "./components/HeroSection";
 import ServicesSection from "./components/ServicesSection";
-import ProcessSection from "./components/ProcessSection";
-import FeaturesSection from "./components/FeaturesSection";
-import CostCalculatorSection from "./components/CostCalculatorSection";
-import ProjectGallery from "./components/ProjectGallery";
-import TestimonialsSection from "./components/TestimonialsSection";
-import FaqSection from "./components/FaqSection";
-import ContactSection from "./components/ContactSection";
 import AboutSection from "./components/AboutSection";
-import ClientJourneySection from "./components/ClientJourneySection";
-import BlogSection from "./components/BlogSection";
+import TeamSection from "./components/TeamSection";
+import ReferencesSection from "./components/ReferencesSection";
+import ContactSection from "./components/ContactSection";
+import ValuesSection from "./components/ValuesSection";
+import ServiceAreasSection from "./components/ServiceAreasSection";
 
 export default function Home() {
   return (
@@ -18,14 +13,10 @@ export default function Home() {
       <HeroSection />
       <ServicesSection />
       <AboutSection />
-      <ProcessSection />
-      <ClientJourneySection />
-      <FeaturesSection />
-      <CostCalculatorSection />
-      <ProjectGallery />
-      <BlogSection />
-      <TestimonialsSection />
-      <FaqSection />
+      <ValuesSection />
+      <ServiceAreasSection />
+      <TeamSection />
+      <ReferencesSection />
       <ContactSection />
     </div>
   );

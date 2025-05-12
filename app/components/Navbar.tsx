@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -12,10 +13,19 @@ const navItems = [
   { label: "Badstile", href: "/badstile" },
   { label: "Nachhaltigkeit", href: "/nachhaltigkeit" },
   { label: "Referenzen", href: "/#referenzen" },
+  { label: "Kontakt", href: "/kontakt" }
 ];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname === href;
+  };
 
   return (
     <nav className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
@@ -23,7 +33,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-2xl font-bold text-blue-700">Badsanierung</Link>
+            <Link href="/" className="text-2xl font-bold text-blue-700">INOservis</Link>
           </div>
           {/* Navitems Desktop */}
           <div className="hidden md:flex flex-1 justify-center space-x-6">
@@ -31,20 +41,18 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-700 font-medium transition-colors duration-200"
+                className={`font-medium transition-colors duration-200 ${
+                  isActive(item.href)
+                    ? "text-blue-700"
+                    : "text-gray-700 hover:text-blue-700"
+                }`}
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/kontakt"
-              className="text-blue-700 hover:text-blue-800 font-medium transition-colors duration-200"
-            >
-              Kontakt
-            </Link>
           </div>
           {/* CTA Button Desktop */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:block">
             <Link
               href="/kontakt"
               className="bg-blue-700 text-white px-5 py-2 rounded-full font-semibold shadow hover:bg-blue-800 transition-colors duration-200"
@@ -81,18 +89,15 @@ export default function Navbar() {
                   key={item.label}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-xl text-gray-700 hover:text-blue-700 font-semibold transition-colors duration-200"
+                  className={`text-xl font-semibold transition-colors duration-200 ${
+                    isActive(item.href)
+                      ? "text-blue-700"
+                      : "text-gray-700 hover:text-blue-700"
+                  }`}
                 >
                   {item.label}
                 </Link>
               ))}
-              <Link
-                href="/kontakt"
-                onClick={() => setMobileOpen(false)}
-                className="text-xl text-blue-700 hover:text-blue-800 font-semibold transition-colors duration-200"
-              >
-                Kontakt
-              </Link>
             </nav>
             <Link
               href="/kontakt"

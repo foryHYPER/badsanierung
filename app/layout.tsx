@@ -9,10 +9,9 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
-  title: "Badsanierung",
-  description: "Badsanierung",
+  title: "INOservis",
+  description: "INOservis",
 };
 
 export default function RootLayout({
@@ -21,10 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de">
-      <body
-        className={`${inter.variable} antialiased`}
-      >
+    <html lang="de" className={`${inter.variable} antialiased`}>
+      <body>
         <Navbar />
         <main>
           {children}

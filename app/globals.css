@@ -3,3 +3,14 @@
 .section-container {
   @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
 }
+
+@layer base {
+  h2 {
+    @apply relative inline-block;
+  }
+  
+  h2::after {
+    content: '';
+    @apply absolute bottom-[-0.5rem] left-1/2 -translate-x-1/2 w-[90%] h-1 bg-gradient-to-r from-transparent via-blue-600 to-transparent;
+  }
+}

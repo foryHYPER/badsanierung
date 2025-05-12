@@ -1,36 +1,54 @@
-import React from "react";
+'use client';
 
-export default function HeroSection() {
+import { motion } from "framer-motion";
+
+const HeroSection = () => {
   return (
-    <section className="w-full">
-      <div className="relative w-full h-[60vw] min-h-[300px] max-h-[600px] overflow-hidden">
-        {/* Using regular img tag instead of Next.js Image */}
-        <img
-          src="/hero-2.jpg"
-          alt="Badsanierung Hero"
-          className="absolute w-full h-full object-cover object-center"
-          style={{ zIndex: 0 }}
-        />
-        {/* Overlay with reduced opacity */}
-        <div 
-          className="absolute inset-0 bg-black pointer-events-none" 
-          style={{ zIndex: 1, opacity: 0.6 }}
-        />
-        {/* Text-Content */}
-        <div 
-          className="absolute inset-0 flex flex-col items-center justify-center text-center px-4" 
-          style={{ zIndex: 2 }}
+    <section 
+      className="relative text-white py-24 bg-cover bg-center bg-no-repeat min-h-[80vh] flex items-center"
+      style={{
+        backgroundImage: "url('/Hero1.webp')",
+      }}
+    >
+      <div className="absolute inset-0 bg-gray-900/40" />
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto text-center"
         >
-          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold drop-shadow-lg mb-4">Ihre neue Wohlfühloase</h1>
-          <p className="text-white text-lg sm:text-2xl md:text-2xl font-medium drop-shadow mb-8 max-w-2xl">Professionelle Badsanierung aus einer Hand – modern, zuverlässig und individuell auf Ihre Wünsche abgestimmt.</p>
-          <a
-            href="#kontakt"
-            className="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-8 py-4 rounded-full text-lg shadow-lg transition-colors duration-200"
-          >
-            Jetzt Beratung anfragen
-          </a>
-        </div>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+            Wir bringen alles IN Ordnung
+          </h1>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-white">
+            INOservis - Ihr Partner für Facility Management
+          </h2>
+          <p className="text-xl md:text-2xl mb-12 text-white">
+            Professionelle Lösungen in allen Bereichen des Facility Management und der technischen Objektbetreuung
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="/kontakt"
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
+            >
+              Kontakt aufnehmen
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="/services"
+              className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-white/10 transition-colors"
+            >
+              Unsere Leistungen
+            </motion.a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
-} 
+};
+
+export default HeroSection; 
