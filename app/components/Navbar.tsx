@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -12,7 +12,6 @@ const navItems = [
   { label: "Badstile", href: "/badstile" },
   { label: "Nachhaltigkeit", href: "/nachhaltigkeit" },
   { label: "Referenzen", href: "/#referenzen" },
-  { label: "Kontakt", href: "/#kontakt" },
 ];
 
 export default function Navbar() {
@@ -24,7 +23,6 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            {/* Platzhalter für Logo */}
             <Link href="/" className="text-2xl font-bold text-blue-700">Badsanierung</Link>
           </div>
           {/* Navitems Desktop */}
@@ -33,16 +31,22 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-black-700 hover:text-blue-700 font-medium transition-colors duration-200"
+                className="text-gray-700 hover:text-blue-700 font-medium transition-colors duration-200"
               >
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="/kontakt"
+              className="text-blue-700 hover:text-blue-800 font-medium transition-colors duration-200"
+            >
+              Kontakt
+            </Link>
           </div>
           {/* CTA Button Desktop */}
           <div className="hidden md:flex items-center">
             <Link
-              href="/#kontakt"
+              href="/kontakt"
               className="bg-blue-700 text-white px-5 py-2 rounded-full font-semibold shadow hover:bg-blue-800 transition-colors duration-200"
             >
               Angebot anfragen
@@ -69,7 +73,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="absolute top-6 right-6 p-2 rounded hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-700"
             >
-              <Menu size={28} />
+              <X size={28} />
             </button>
             <nav className="flex flex-col space-y-6 items-center justify-center flex-1">
               {navItems.map((item) => (
@@ -82,10 +86,17 @@ export default function Navbar() {
                   {item.label}
                 </Link>
               ))}
+              <Link
+                href="/kontakt"
+                onClick={() => setMobileOpen(false)}
+                className="text-xl text-blue-700 hover:text-blue-800 font-semibold transition-colors duration-200"
+              >
+                Kontakt
+              </Link>
             </nav>
             <Link
-              href="/#kontakt"
-              className="mt-10 bg-blue-700 text-white px-8 py-4 rounded-full font-semibold shadow hover:bg-blue-800 transition-colors duration-200 text-xl text-center"
+              href="/kontakt"
+              className="mt-10 bg-blue-700 text-white px-8 py-4 rounded-full font-semibold shadow hover:bg-blue-800 transition-colors duration-200 text-xl text-center w-full max-w-xs"
               onClick={() => setMobileOpen(false)}
             >
               Angebot anfragen
