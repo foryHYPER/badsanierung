@@ -66,7 +66,7 @@ export default function AboutSection() {
   const imageY = useTransform(scrollYProgress, [0, 1], [0, -50]);
   
   return (
-    <section id="ueber-uns" className="py-24 bg-gray-50 overflow-hidden">
+    <section id="ueber-uns" className="py-12 md:py-24 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={containerRef}>
         {/* Section Title */}
         <motion.div
@@ -74,32 +74,33 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Über uns</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Über uns</h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Lernen Sie unser erfahrenes Team kennen – Ihr Partner für hochwertige Badsanierungen seit über 15 Jahren.
           </p>
         </motion.div>
         
         {/* Company Story with Side Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="space-y-6"
           >
-            <h3 className="text-2xl font-bold text-blue-700 mb-6">Unsere Geschichte</h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <h3 className="text-2xl font-bold text-blue-700 mb-4 md:mb-6">Unsere Geschichte</h3>
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
               Seit der Gründung im Jahr 2008 hat sich unser Familienunternehmen zu einem führenden Spezialisten für hochwertige Badsanierungen in der Region entwickelt. Was mit einem kleinen Team begann, ist heute ein etabliertes Unternehmen mit über 20 Mitarbeitern.
             </p>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
               Unser Erfolgsgeheimnis? Die Kombination aus handwerklicher Präzision, innovativer Badplanung und einem umfassenden Service aus einer Hand. Jedes Projekt wird mit der gleichen Sorgfalt und Leidenschaft umgesetzt – ob kleine Teilsanierung oder komplette Badrenovierung.
             </p>
             <div className="flex items-center space-x-4">
-              <div className="w-16 h-1 bg-blue-700"></div>
-              <p className="text-blue-700 font-semibold">Über 500 erfolgreiche Projekte</p>
+              <div className="w-12 sm:w-16 h-1 bg-blue-700"></div>
+              <p className="text-blue-700 font-semibold text-sm sm:text-base">Über 500 erfolgreiche Projekte</p>
             </div>
           </motion.div>
           
@@ -108,7 +109,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative h-96 rounded-xl overflow-hidden shadow-xl"
+            className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-xl"
           >
             <motion.div
               style={{ y: imageY }}
@@ -149,15 +150,15 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Unsere Werte</h3>
-          <p className="text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Diese Grundsätze prägen unsere tägliche Arbeit und die Zusammenarbeit mit unseren Kunden.
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mb-16 md:mb-20">
           {companyValues.map((value, index) => (
             <motion.div
               key={value.title}
@@ -165,13 +166,13 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white p-8 rounded-xl shadow-lg"
+              className="bg-white p-6 sm:p-8 rounded-xl shadow-lg"
             >
-              <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 mb-6 mx-auto">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 mb-4 sm:mb-6 mx-auto">
                 {value.icon}
               </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-3 text-center">{value.title}</h4>
-              <p className="text-gray-600 text-center">{value.description}</p>
+              <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 text-center">{value.title}</h4>
+              <p className="text-sm sm:text-base text-gray-600 text-center">{value.description}</p>
             </motion.div>
           ))}
         </div>

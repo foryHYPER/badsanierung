@@ -62,26 +62,26 @@ const itemVariants = {
 
 export default function ServicesSection() {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-12 md:py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <div className="inline-block">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 px-6 py-2 inline-block">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 px-4 sm:px-6 py-2 inline-block">
               Unsere Dienstleistungen im Überblick
             </h2>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-6">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mt-4 sm:mt-6">
             Professionelle Lösungen für alle Bereiche des Facility Management und der technischen Objektbetreuung
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -89,17 +89,17 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow ${
+              className={`bg-white rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow ${
                 service.isHighlighted ? "border-2 border-blue-500" : ""
               }`}
             >
-              <div className="flex items-center mb-6">
-                <service.icon className="w-12 h-12 text-blue-600" />
-                <h3 className="text-2xl font-semibold text-gray-900 ml-4">
+              <div className="flex items-center mb-4 sm:mb-6">
+                <service.icon className="w-10 h-10 sm:w-12 sm:h-12 text-blue-600" />
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 ml-3 sm:ml-4">
                   {service.title}
                 </h3>
               </div>
-              <p className="text-gray-600 text-lg">
+              <p className="text-base sm:text-lg text-gray-600">
                 {service.description}
               </p>
             </motion.div>

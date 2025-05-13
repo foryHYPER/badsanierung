@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -10,8 +10,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "INOservis",
-  description: "INOservis",
+  title: "INOservis | Facility Management in Hockenheim & Umgebung",
+  description:
+    "INOservis – Ihr Partner für Facility Management, Hausmeisterservice und Gebäudereinigung im Umkreis von 50 km um 68766 Hockenheim.",
+  keywords: [
+    "Facility Management Hockenheim",
+    "Hausmeisterservice Schwetzingen",
+    "Gebäudereinigung Mannheim",
+    "Winterdienst Speyer",
+    "Objektservice Heidelberg",
+    "Gartenpflege Walldorf",
+    "Immobilienservice Rhein-Neckar",
+  ],
 };
 
 export default function RootLayout({
@@ -23,9 +33,7 @@ export default function RootLayout({
     <html lang="de" className={`${inter.variable} antialiased`}>
       <body>
         <Navbar />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

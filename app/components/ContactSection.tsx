@@ -96,24 +96,24 @@ export default function ContactSection() {
   };
   
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-12 md:py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Kontaktieren Sie uns
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Wir freuen uns darauf, Sie kennenzulernen und Ihre Anforderungen zu besprechen
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 md:mb-16">
           {contactInfo.map((info, index) => (
             <motion.div
               key={info.title}
@@ -121,23 +121,23 @@ export default function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow"
             >
-              <div className="flex items-center mb-6">
-                <info.icon className={`w-12 h-12 ${info.color}`} />
-                <h3 className="text-2xl font-semibold text-gray-900 ml-4">
+              <div className="flex items-center mb-4 sm:mb-6">
+                <info.icon className={`w-10 h-10 sm:w-12 sm:h-12 ${info.color}`} />
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 ml-3 sm:ml-4">
                   {info.title}
                 </h3>
               </div>
               {info.link ? (
                 <a
                   href={info.link}
-                  className="text-gray-600 text-lg hover:text-blue-600 transition-colors"
+                  className="text-base sm:text-lg text-gray-600 hover:text-blue-600 transition-colors"
                 >
                   {info.content}
                 </a>
               ) : (
-                <p className="text-gray-600 text-lg">
+                <p className="text-base sm:text-lg text-gray-600">
                   {info.content}
                 </p>
               )}
@@ -145,51 +145,65 @@ export default function ContactSection() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-xl p-8 shadow-lg"
+            className="bg-white rounded-xl p-6 sm:p-8 shadow-lg"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Kontaktformular
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Senden Sie uns eine Nachricht
             </h3>
-            <form className="space-y-6">
+            <form className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm sm:text-base font-medium text-gray-700 mb-1 sm:mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm sm:text-base font-medium text-gray-700 mb-1 sm:mb-2">
+                    E-Mail
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="w-full px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    required
+                  />
+                </div>
+              </div>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Name
+                <label htmlFor="subject" className="block text-sm sm:text-base font-medium text-gray-700 mb-1 sm:mb-2">
+                  Betreff
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  id="subject"
+                  name="subject"
+                  className="w-full px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  E-Mail
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm sm:text-base font-medium text-gray-700 mb-1 sm:mb-2">
                   Nachricht
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   required
                 ></textarea>
               </div>
@@ -197,7 +211,7 @@ export default function ContactSection() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
+                className="w-full bg-blue-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold text-base sm:text-lg hover:bg-blue-700 transition-colors"
               >
                 Nachricht senden
               </motion.button>
@@ -209,38 +223,33 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-blue-600 text-white rounded-xl p-8 shadow-lg"
+            className="bg-blue-600 text-white rounded-xl p-6 sm:p-8 shadow-lg"
           >
-            <h3 className="text-2xl font-bold mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
               Warum INOservis?
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               <li className="flex items-start">
                 <span className="text-blue-200 mr-2">•</span>
-                <p>Kurze und unkomplizierte Entscheidungswege</p>
+                <p className="text-sm sm:text-base">Kurze und unkomplizierte Entscheidungswege</p>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-200 mr-2">•</span>
-                <p>Schnelle und flexible Auftragsabwicklung</p>
+                <p className="text-sm sm:text-base">Schnelle und flexible Auftragsabwicklung</p>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-200 mr-2">•</span>
-                <p>Professionelle Dienstleistungen höchster Qualität</p>
+                <p className="text-sm sm:text-base">Professionelle Dienstleistungen höchster Qualität</p>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-200 mr-2">•</span>
-                <p>Kostensenkung und Aufwandsreduzierung</p>
+                <p className="text-sm sm:text-base">Kostensenkung und Aufwandsreduzierung</p>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-200 mr-2">•</span>
-                <p>Erfahrene Fachkräfte und zuverlässiger Service</p>
+                <p className="text-sm sm:text-base">Erfahrene Fachkräfte und zuverlässiger Service</p>
               </li>
             </ul>
-            <div className="mt-8 p-4 bg-blue-500 rounded-lg">
-              <p className="text-blue-100">
-                Wir unterstützen Sie bei jeglicher Entlastung rund um Ihr Anwesen und bringen uns immer aktiv mit ein.
-              </p>
-            </div>
           </motion.div>
         </div>
       </div>
